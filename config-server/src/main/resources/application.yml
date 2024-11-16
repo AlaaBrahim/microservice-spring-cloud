@@ -9,4 +9,4 @@ spring:
           uri: https://github.com/AlaaBrahim/microservice-spring-cloud.git
           clone-on-start: true
     compatibility-verifier:
-        enabled: false
+      enabled: false
