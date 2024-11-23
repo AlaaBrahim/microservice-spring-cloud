@@ -7,11 +7,11 @@ spring:
         - id: product-service
           uri: lb://product-microservice
           predicates:
-            - Path=/products/**
+            - Path=/api/products/**
         - id: user-service
           uri: lb://user-microservice
           predicates:
-            - Path=/users/**
+            - Path=/api/users/**
 eureka:
   client:
     service-url:
