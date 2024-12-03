@@ -9,6 +9,6 @@ spring:
           uri: https://github.com/AlaaBrahim/microservice-spring-cloud.git
           clone-on-start: true
           search-paths: configs
-          default-label: circuit-breaker # Specify the branch to pull from
+          default-label: ribbon # Specify the branch to pull from
     compatibility-verifier:
       enabled: false
