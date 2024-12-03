@@ -3,6 +3,7 @@ package tp.microservice.user_service.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
@@ -18,6 +19,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
@@ -46,6 +50,12 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/products")
+    public String getAllProducts() {
+        String productServiceUrl = "http://product-microservice/api/products";
+        return restTemplate.getForObject(productServiceUrl, String.class);
     }
 
     public String fallback(Exception e) {

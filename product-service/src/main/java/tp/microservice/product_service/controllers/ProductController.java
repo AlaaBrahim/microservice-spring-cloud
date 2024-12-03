@@ -51,7 +51,7 @@ public class ProductController {
 
     @GetMapping("/users")
     public String getUsers() {
-        String userServiceUrl = "http://user-microservice/users";
+        String userServiceUrl = "http://user-microservice/api/users";
         return restTemplate.getForObject(userServiceUrl, String.class);
     }
 

@@ -10,7 +10,3 @@ management:
     metrics:
       export:
         enabled: true
-
-ribbon:
-  eureka:
-    enabled: true
