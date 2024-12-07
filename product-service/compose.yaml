@@ -1,10 +1,19 @@
+version: "3.8"
+
 services:
-  mysql:
-    image: 'mysql:latest'
+  product_microservice_db:
+    image: mysql:8.0 # Use the MySQL version you prefer
+    container_name: product_microservice_db
+    restart: always
     environment:
-      - 'MYSQL_DATABASE=mydatabase'
-      - 'MYSQL_PASSWORD=secret'
-      - 'MYSQL_ROOT_PASSWORD=verysecret'
-      - 'MYSQL_USER=myuser'
+      MYSQL_ROOT_PASSWORD: root # Root password
+      MYSQL_DATABASE: product_microservice # Database name
+      MYSQL_USER: root # Username
+      MYSQL_PASSWORD: root # Password
     ports:
-      - '3306'
+      - "3306:3306" # Expose the database on localhost
+    volumes:
+      - db_data:/var/lib/mysql # Persist database data
+
+volumes:
+  db_data:

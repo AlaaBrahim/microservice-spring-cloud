@@ -8,6 +8,6 @@ spring:
         git:
           uri: https://github.com/AlaaBrahim/microservice-spring-cloud.git
           clone-on-start: true
-          search-paths: configs
+          search-paths: cqrs
     compatibility-verifier:
       enabled: false

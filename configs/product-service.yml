@@ -7,6 +7,13 @@ spring:
       import: "optional:configserver:" # Utilisation correcte de configserver avec optional pour éviter l'erreur
       import-check:
         enabled: false # Désactiver la vérification de l'importation de configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/product_microservice 
+    username: root # Nom d'utilisateur de la base de données
+    password: root # Mot de passe de la base de données
+  jpa:
+    hibernate:
+      ddl-auto: update # Mise à jour automatique de la base de données
 eureka:
   client:
     service-url:
@@ -17,3 +24,15 @@ management:
       probability: 1.0 # Taux d'échantillonnage pour la traçabilité (1.0 signifie que toutes les requêtes seront tracées)
   zipkin:
     endpoint: http://localhost:9411/api/v2/spans # URL du serveur Zipkin pour collecter et visualiser les traces
+
+axon:
+  eventhandling:
+    processors:
+      '*': 
+        mode: tracking
+        source: eventStore
+        initial-segment-count: 1
+  eventStore:
+    jpa:
+      schema-generation:
+        enabled: true
