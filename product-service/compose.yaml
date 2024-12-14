@@ -6,8 +6,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root # Root password
       MYSQL_DATABASE: product_microservice # Database name
-      MYSQL_USER: root # Username
-      MYSQL_PASSWORD: root # Password
+      # MYSQL_USER: root # Username
+      # MYSQL_PASSWORD: root # Password
     ports:
       - "3306:3306" # Expose the database on localhost
     volumes:

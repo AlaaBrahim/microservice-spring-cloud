@@ -12,8 +12,12 @@ spring:
     username: root # Nom d'utilisateur de la base de données
     password: root # Mot de passe de la base de données
   jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
     hibernate:
-      ddl-auto: update # Mise à jour automatique de la base de données
+      ddl-auto: update
+    show-sql: true
 eureka:
   client:
     service-url:
