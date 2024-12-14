@@ -25,7 +25,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductById(Long id) {
+    public Product getProductById(String id) {
         LOGGER.info("Fetching product with ID: {}", id);
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found!"));
@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product updateProduct(Long id, Product product) {
+    public Product updateProduct(String id, Product product) {
         LOGGER.info("Updating product with ID: {}", id);
         Product existingProduct = getProductById(id);
         existingProduct.setName(product.getName());
@@ -48,7 +48,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void deleteProduct(Long id) {
+    public void deleteProduct(String id) {
         LOGGER.info("Deleting product with ID: {}", id);
         productRepository.deleteById(id);
     }

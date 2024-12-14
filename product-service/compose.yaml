@@ -13,5 +13,13 @@ services:
     volumes:
       - db_data:/var/lib/mysql # Persist database data
 
+  axonserver:
+    image: "axoniq/axonserver:latest"
+    environment:
+      - "AXONIQ_AXONSERVER_STANDALONE=TRUE"
+    ports:
+      - "8024:8024"
+      - "8124:8124"
+
 volumes:
   db_data:

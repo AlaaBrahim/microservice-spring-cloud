@@ -7,11 +7,11 @@ import tp.microservice.product_service.entities.Product;
 public interface ProductService {
     Product createProduct(Product product);
 
-    Product getProductById(Long id);
+    Product getProductById(String id);
 
     List<Product> getAllProducts();
 
-    Product updateProduct(Long id, Product product);
+    Product updateProduct(String id, Product product);
 
-    void deleteProduct(Long id);
+    void deleteProduct(String id);
 }
