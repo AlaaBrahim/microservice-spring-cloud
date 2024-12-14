@@ -3,8 +3,6 @@ version: "3.8"
 services:
   product_microservice_db:
     image: mysql:8.0 # Use the MySQL version you prefer
-    container_name: product_microservice_db
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root # Root password
       MYSQL_DATABASE: product_microservice # Database name
